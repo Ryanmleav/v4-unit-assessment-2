@@ -37,6 +37,9 @@ let foods = [
 
 //CODE HERE
 
+
+// let calories = foods.forEach(function (element,index,array){
+  // })
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
   For problems 2-4, you will be working with the products array below.
@@ -81,6 +84,8 @@ const products = [
 */
 
 //CODE HERE
+let saleProducts = products.map(element => element % .25)
+
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -91,6 +96,7 @@ const products = [
 */
 
 //CODE HERE
+let blueProducts = saleProducts.filter( saleProducts => saleProducts.color == 'blue')
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -100,6 +106,7 @@ const products = [
 */
 
 //CODE HERE
+
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -130,6 +137,9 @@ const shippingInfo = {
 */
 
 //CODE HERE
+ let helensInfo = Object.assign(contactInfo, shippingInfo) 
+ 
+
 
 ////////////////////PROBLEM 6////////////////////
 /*
@@ -139,6 +149,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
+let ellensInfo = {...helensInfo}
 
 ////////////////////PROBLEM 7////////////////////
 /* 
@@ -274,9 +285,9 @@ const workout = {
 }
 
 //let context1 = myFunc
-//let context1 = window
-//let context1 = global
-// let context1 = workout
+// let context1 = window
+// let context1 = global
+let context1 = workout
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -289,6 +300,6 @@ function myFunc() {
 }
 
 //let context2 = myFunc
-// let context2 = window
+let context2 = window
 //let context2 = global
 //let context2 = workout
