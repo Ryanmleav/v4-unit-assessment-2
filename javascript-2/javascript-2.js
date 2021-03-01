@@ -38,8 +38,9 @@ let foods = [
 //CODE HERE
 
 
-// let calories = foods.forEach(function (element,index,array){
-  // })
+let calories = foods.forEach(function (element) {
+  element.calories = (element.carbs * 4) + (element.protein * 4) + (element.fat * 9)
+})
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
   For problems 2-4, you will be working with the products array below.
@@ -84,7 +85,12 @@ const products = [
 */
 
 //CODE HERE
-let saleProducts = products.map(element => element % .25)
+let saleProducts = products.map(function (element) {
+  element.price *= .75
+  return element
+})
+
+
 
 
 ////////////////////PROBLEM 3////////////////////
@@ -96,7 +102,8 @@ let saleProducts = products.map(element => element % .25)
 */
 
 //CODE HERE
-let blueProducts = saleProducts.filter( saleProducts => saleProducts.color == 'blue')
+console.log({ saleProducts })
+let blueProducts = saleProducts.filter(saleProducts => saleProducts.color.includes('blue'))
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -106,8 +113,12 @@ let blueProducts = saleProducts.filter( saleProducts => saleProducts.color == 'b
 */
 
 //CODE HERE
-
-
+console.log({ blueProducts })
+let orderTotal = blueProducts.reduce((acc, curr) => {
+  console.log({ curr })
+  return acc + curr.price
+}, 0);
+console.log({ orderTotal })
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
   For these problems we will be using the objects below, contactInfo and shippingInfo,
@@ -137,8 +148,8 @@ const shippingInfo = {
 */
 
 //CODE HERE
- let helensInfo = Object.assign(contactInfo, shippingInfo) 
- 
+let helensInfo = Object.assign(contactInfo, shippingInfo)
+
 
 
 ////////////////////PROBLEM 6////////////////////
@@ -149,7 +160,9 @@ const shippingInfo = {
 */
 
 //CODE HERE
-let ellensInfo = {...helensInfo}
+let ellensInfo = { ...helensInfo }
+ellensInfo.name = 'Ellen'
+ellensInfo.email = 'ellen@email.com'
 
 ////////////////////PROBLEM 7////////////////////
 /* 
@@ -158,6 +171,9 @@ let ellensInfo = {...helensInfo}
 
 //CODE HERE
 
+const { email } = ellensInfo
+
+
 ////////////////////PROBLEM 8////////////////////
 /*
   In a single expression (one line), save the zip code and state 
@@ -165,7 +181,7 @@ let ellensInfo = {...helensInfo}
 */
 
 //CODE HERE
-
+const { zipCode, state } = shippingInfo
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
   Use the userInfo object below to complete problems 9-11.
@@ -227,14 +243,15 @@ const userInfo = {
 */
 
 //CODE HERE
-
+shouldAlert = userInfo.settings.alerts
 ////////////////////PROBLEM 10////////////////////
 /*
   Set the value of topic below to the last item in gn@rly_c0der_007's topics array
-  using dot and/or bracket notation.
+  using dot and/or bracket notation. declare a varable and give it a value of last item in topics array
 */
 
 //CODE HERE
+topic = userInfo.topics[3]
 
 ////////////////////PROBLEM 11////////////////////
 /*
@@ -243,6 +260,7 @@ const userInfo = {
 */
 
 //CODE HERE
+commenterId = userInfo.comments[0].comment[1]
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -263,6 +281,30 @@ const userInfo = {
 
 //CODE HERE
 
+let person = {
+  name: 'Ryan',
+  age: 35,
+  jobs: ['electrician', 'tile setter', 'future web designer'],
+  birthday: function () {
+    this.age += 1
+  },
+  favorites: {
+    color: 'green',
+    number: 13,
+    book: 'witcher',
+
+    // name: 'coby',
+    // age : 9,
+    // name: 'mya',
+    // age: 7,
+    // name: 'ellie',
+    // age: 5,
+    // }
+
+  },
+  kids: [{ name: 'coby', age: 9 }, { name: 'mya', age: 7 }],
+}
+// console.log({ person })
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
   For the last two problems, you will be determining the 
